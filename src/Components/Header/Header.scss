@@ -1,0 +1,40 @@
+@import '../../Style/CssFunc';
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.header{
+    padding: toRem(10);
+    background-color: rgb(11, 11, 12);
+    color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.heading{
+    padding: toRem(5) toRem(10) ;
+    color: white;
+    font-weight: bold;
+    
+}
+.bx-cart-alt, .bx-user{
+    font-size: toRem(20);
+    cursor: pointer;
+    letter-spacing: toRem(2);
+}
+
+.header-icons{
+    display: flex;
+    gap: toRem(10);
+}

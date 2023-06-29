@@ -1,0 +1,48 @@
+.main-footer {
+  background-color: rgb(148, 70, 70);
+  color: white;
+  border-radius: 0.4375rem;
+  width: 900px;
+  margin: auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3125rem 0.625rem;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .main-footer {
+    width: 100%;
+    left: 0;
+    padding: 0.625rem;
+  }
+  html {
+    font-size: 11px;
+  }
+}
+@media only screen and (min-device-width: 480px) and (max-device-width: 1000px) {
+  .main-footer {
+    width: 80%;
+    left: 0;
+    padding: 0.625rem;
+  }
+  html {
+    font-size: 11px;
+  }
+}
+.footer-cart-view {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-cart-view button {
+  padding: 0.25rem 0.9375rem;
+  border-radius: 0.375rem;
+  background-color: rgb(229, 92, 58);
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+  cursor: pointer;
+}/*# sourceMappingURL=PriceFooter.css.map */

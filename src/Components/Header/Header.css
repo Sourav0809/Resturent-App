@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 0.625rem;
+  background-color: rgb(11, 11, 12);
+  color: white;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.heading {
+  padding: 0.3125rem 0.625rem;
+  color: white;
+  font-weight: bold;
+}
+
+.bx-cart-alt, .bx-user {
+  font-size: 1.25rem;
+  cursor: pointer;
+  letter-spacing: 0.125rem;
+}
+
+.header-icons {
+  display: flex;
+  gap: 0.625rem;
+}/*# sourceMappingURL=Header.css.map */

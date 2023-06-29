@@ -1,0 +1,58 @@
+@function toRem($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
+.main-footer{
+    background-color: rgb(148, 70, 70);
+    color: white;
+    border-radius: toRem(7);
+    width: 900px;
+    margin: auto;
+
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: toRem(5) toRem(10);
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:480px) {
+    .main-footer{
+        width: 100%;
+        left: 0;
+        padding: toRem(10);
+    }
+    html{
+        font-size: 11px;
+    }
+    
+}
+@media only screen and (min-device-width:480px) and (max-device-width:1000px) {
+    .main-footer{
+        width: 80%;
+        left: 0;
+        padding: toRem(10);
+    }
+    html{
+        font-size: 11px;
+    }
+    
+}
+
+.footer-cart-view{
+    display: flex;
+    gap: toRem(8);
+
+}
+
+.footer-cart-view button{
+    padding: toRem(4) toRem(15);
+    border-radius: toRem(6);
+    background-color: rgb(229, 92, 58);
+    color: white;
+    font-weight: bold;
+    font-size: toRem(12);
+    cursor: pointer;
+
+}
