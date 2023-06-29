@@ -41,8 +41,11 @@ const ItemsContainer = () => {
   const [cartList, setCartList] = useState([]);
   //view cart page
   const [viewCartPage, setViewCartPage] = useState(false);
+  // view cart conatiner
+  const [viewCartConatiner, setViewCartContainer] = useState(false);
 
   const addingToCart = (UpdatedCart) => {
+    setViewCartContainer(true);
     setPrice(UpdatedCart.addedProductPrice * UpdatedCart.addedProductCount);
     setCartList((prevCartList) => {
       return [...prevCartList, UpdatedCart];
@@ -85,7 +88,11 @@ const ItemsContainer = () => {
               );
             })}
           </Ui>
-          <PriceFooter price={price} onclick={onclickHandeler} />
+          {viewCartConatiner ? (
+            <PriceFooter price={price} onclick={onclickHandeler} />
+          ) : (
+            ""
+          )}
         </>
       )}
     </>

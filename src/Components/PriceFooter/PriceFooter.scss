@@ -43,11 +43,13 @@
 .footer-cart-view{
     display: flex;
     gap: toRem(8);
+    justify-content: center;
+    align-items: center;
 
 }
 
 .footer-cart-view button{
-    padding: toRem(4) toRem(15);
+    padding: toRem(8) toRem(15);
     border-radius: toRem(6);
     background-color: rgb(229, 92, 58);
     color: white;
@@ -56,3 +58,5 @@
     cursor: pointer;
 
 }
+
+

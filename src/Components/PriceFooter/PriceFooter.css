@@ -35,10 +35,12 @@
 .footer-cart-view {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-cart-view button {
-  padding: 0.25rem 0.9375rem;
+  padding: 0.5rem 0.9375rem;
   border-radius: 0.375rem;
   background-color: rgb(229, 92, 58);
   color: white;
