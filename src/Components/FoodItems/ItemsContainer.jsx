@@ -2,63 +2,45 @@ import Items from "./Items";
 import Ui from "../UI/Ui";
 import PriceFooter from "../PriceFooter/PriceFooter";
 import Cart from "../Cart/Cart";
+import ItemsData from "../../assets/ItemsData";
 import { useState } from "react";
-const foodItems = [
-  {
-    itemName: "Biriyani",
-    price: 200,
-    img: "https://5.imimg.com/data5/SELLER/Default/2020/9/TM/KJ/OG/2707316/mutton-biriyani-masala.jpg",
-    id: "e1",
-  },
-  {
-    itemName: "Chicken",
-    price: 150,
-    img: "https://i0.wp.com/www.onceuponachef.com/images/2015/01/tandoori-chicken-1.jpg?resize=760%2C1029&ssl=1",
-    id: "e2",
-  },
-  {
-    itemName: "Panner",
-    price: 250,
-    img: "https://geekrobocook.com/wp-content/uploads/2021/04/Panner-Do-Pyaza.jpg",
-    id: "e3",
-  },
-  {
-    itemName: "Chole Bhature",
-    price: 75,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSXSE9-8ggTzXmwHwag-RZR5R2m7zKuwo0J0k-T8ubYUNMxpZbrUdnt6H65Mnyxtos1Gc&usqp=CAU.jpeg",
-    id: "e4",
-  },
-  {
-    itemName: "Chole Bhature",
-    price: 90,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSXSE9-8ggTzXmwHwag-RZR5R2m7zKuwo0J0k-T8ubYUNMxpZbrUdnt6H65Mnyxtos1Gc&usqp=CAU.jpeg",
-    id: "e5",
-  },
-];
 
 const ItemsContainer = () => {
-  const [price, setPrice] = useState(0);
-  const [cartList, setCartList] = useState([]);
-  //view cart page
+  const [totalPrice, setTotalPrice] = useState(0);
   const [viewCartPage, setViewCartPage] = useState(false);
-  // view cart conatiner
-  const [viewCartConatiner, setViewCartContainer] = useState(false);
+  const [cartList, setCartList] = useState([]);
 
   const addingToCart = (UpdatedCart) => {
-    setViewCartContainer(true);
-    setPrice(UpdatedCart.addedProductPrice * UpdatedCart.addedProductCount);
+    setTotalPrice((prevItemPrice) => {
+      return (
+        UpdatedCart.addedProductPrice * UpdatedCart.addedProductCount +
+        prevItemPrice
+      );
+    });
+
     setCartList((prevCartList) => {
       return [...prevCartList, UpdatedCart];
     });
   };
 
-  console.log(cartList);
-
   // function to view the cart page
   const onclickHandeler = () => {
     setViewCartPage(true);
   };
+  const backToMainPage = () => {
+    setViewCartPage(false);
+  };
 
+  let overallItemArr = ItemsData.map((myItem) => {
+    myItem.productCount = 0;
+    cartList.forEach((cartItem) => {
+      if (myItem.id === cartItem.addedProductId) {
+        myItem.productCount = cartItem.addedProductCount;
+      }
+    });
+    return myItem;
+  });
+  console.log(overallItemArr);
   return (
     <>
       {viewCartPage ? (
@@ -69,29 +51,30 @@ const ItemsContainer = () => {
               productName={cartItems.addedProductName}
               productPrice={cartItems.addedProductPrice}
               productCount={cartItems.addedProductCount}
+              onBackButtonHandeler={backToMainPage}
             />
           );
         })
       ) : (
         <>
           <Ui>
-            {foodItems.map((food) => {
+            {overallItemArr.map((food) => {
               return (
                 <Items
                   id={food.id}
+                  quantity={food.productCount}
                   key={food.id}
                   itemName={food.itemName}
                   price={food.price}
                   img={food.img}
                   updateCart={addingToCart}
+                  setTotalPrice={setTotalPrice}
                 />
               );
             })}
           </Ui>
-          {viewCartConatiner ? (
-            <PriceFooter price={price} onclick={onclickHandeler} />
-          ) : (
-            ""
+          {totalPrice != 0 && (
+            <PriceFooter totalPrice={totalPrice} onclick={onclickHandeler} />
           )}
         </>
       )}

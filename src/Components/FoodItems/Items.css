@@ -19,15 +19,14 @@
   width: 12.5rem;
   height: 12.5rem;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
-
 .items-image img {
   display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   border-radius: 0.4375rem;
 }
 
@@ -78,10 +77,4 @@
 
 .item-text {
   margin-top: 0.625rem;
-}
-
-/*# sourceMappingURL=Items.css.map */
-
-.blank-btn-div {
-  padding: 0.3125rem 0.75rem;
-}
+}/*# sourceMappingURL=Items.css.map */

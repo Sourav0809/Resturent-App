@@ -4,6 +4,8 @@
   border-radius: 0.4375rem;
   width: 900px;
   margin: auto;
+  position: sticky;
+  bottom: 0px;
 }
 
 .footer {

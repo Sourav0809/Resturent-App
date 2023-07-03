@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./Items.css";
 const Items = (props) => {
-  const [count, updateCount] = useState(0);
+  const [count, updateCount] = useState(props.quantity);
 
   // to increment quantity
   const incCount = () => {
@@ -14,6 +14,9 @@ const Items = (props) => {
         return oldCount + 1;
       }
     });
+    props.setTotalPrice((prev) => {
+      return prev + props.price;
+    });
   };
   // to decrement quantity
   const decCount = () => {
@@ -24,18 +27,22 @@ const Items = (props) => {
         return oldCount - 1;
       }
     });
+    props.setTotalPrice((prev) => {
+      if (prev - props.price <= 0) {
+        return 0;
+      }
+      return prev - props.price;
+    });
   };
 
   // add to cart
   const addToCart = () => {
-    alert("Product added To cart");
     const updatedCartData = {
       addedProductName: props.itemName,
       addedProductPrice: props.price,
       addedProductCount: count,
       addedProductId: props.id,
     };
-
     props.updateCart(updatedCartData);
     // updateCount(0);
   };
