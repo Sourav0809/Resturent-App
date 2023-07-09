@@ -5,7 +5,9 @@ const Header = () => {
     <header className="header">
       <h2 className="heading">Biriyani House</h2>
       <div className="header-icons">
-        <i className="bx bx-cart-alt">Cart</i>
+        <div className="cart-icons">
+          <i className="bx bx-cart-alt">Cart</i>
+        </div>
         <i className="bx bx-user">SignUp</i>
       </div>
     </header>

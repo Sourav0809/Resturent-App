@@ -14,7 +14,7 @@ const ItemsData = [
   {
     itemName: "Panner",
     price: 250,
-    img: "https://geekrobocook.com/wp-content/uploads/2021/04/Panner-Do-Pyaza.jpg",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6jVXbTb1StlMlF5S_0RYe86-33MEYx1oGKhUbqqqo8KGaB2F7Za9h1yL2r-W5bJB_U4s&usqp=CAU",
     id: "e3",
   },
   {

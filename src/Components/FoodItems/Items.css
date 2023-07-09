@@ -77,4 +77,13 @@
 
 .item-text {
   margin-top: 0.625rem;
+}
+
+.item-quantity-btn {
+  padding: 0.3125rem 1.125rem;
+  border-radius: 0.25rem;
+  background-color: rgb(212, 64, 64);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }/*# sourceMappingURL=Items.css.map */

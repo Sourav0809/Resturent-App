@@ -1,1 +1,23 @@
-/*# sourceMappingURL=Cart.css.map */
+.back-itemspage-btn {
+  margin: 0.625rem;
+  padding: 0.625rem 0.625rem;
+  border-radius: 0.3125rem;
+  background-color: #1877f2;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3125rem;
+}
+.cart-header .bx-cart {
+  font-size: 3.125rem;
+}
+.cart-header h3 {
+  font-size: 1.5625rem;
+}/*# sourceMappingURL=Cart.css.map */

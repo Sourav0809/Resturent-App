@@ -1,1 +1,27 @@
- 
+ @import '../../Style/CssFunc';
+
+.back-itemspage-btn{
+    margin: toRem(10);
+    padding: toRem(10) toRem(10);
+    border-radius: toRem(5);
+    background-color: #1877f2;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.cart-header{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: toRem(5);
+   .bx-cart{
+    font-size: toRem(50);
+}
+h3{
+    font-size: toRem(25);
+}
+}
+

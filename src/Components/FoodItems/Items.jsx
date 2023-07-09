@@ -7,17 +7,28 @@ const Items = (props) => {
   // to increment quantity
   const incCount = () => {
     updateCount((oldCount) => {
-      if (oldCount == 5) {
+      if (oldCount >= 5) {
         alert("You can order only 5 Quantity per items");
-        return 5;
-      } else {
-        return oldCount + 1;
+        return oldCount;
       }
+
+      return oldCount + 1;
     });
+    if (count == 5) {
+      return;
+    }
     props.setTotalPrice((prev) => {
       return prev + props.price;
     });
+    const updatedCartData = {
+      addedProductName: props.itemName,
+      addedProductPrice: props.price,
+      addedProductCount: 1,
+      addedProductId: props.id,
+    };
+    props.updateCart(updatedCartData);
   };
+
   // to decrement quantity
   const decCount = () => {
     updateCount((oldCount) => {
@@ -33,18 +44,22 @@ const Items = (props) => {
       }
       return prev - props.price;
     });
+    props.removeFromCart(props.id);
   };
 
-  // add to cart
-  const addToCart = () => {
+  // to show and hide quantity option
+  const itemQuantityShow = () => {
+    updateCount((prev) => prev + 1);
+    props.setTotalPrice((prev) => {
+      return prev + props.price;
+    });
     const updatedCartData = {
       addedProductName: props.itemName,
       addedProductPrice: props.price,
-      addedProductCount: count,
+      addedProductCount: 1,
       addedProductId: props.id,
     };
     props.updateCart(updatedCartData);
-    // updateCount(0);
   };
 
   return (
@@ -62,21 +77,20 @@ const Items = (props) => {
         </p>
       </div>
       <div className="items-descrip">
-        <div className="item-count">
-          <button onClick={decCount} className="btn-count">
-            -
-          </button>
-          <h3 className="btn-text">{count}</h3>
-          <button onClick={incCount} className="btn-count">
-            +
-          </button>
-        </div>
         {count >= 1 ? (
-          <button className="Add-to-cart-btn" onClick={addToCart}>
-            Add To Cart
-          </button>
+          <div className="item-count">
+            <button onClick={decCount} className="btn-count">
+              -
+            </button>
+            <h3 className="btn-text">{count}</h3>
+            <button onClick={incCount} className="btn-count">
+              +
+            </button>
+          </div>
         ) : (
-          <div className="blank-btn-div"></div>
+          <button className="item-quantity-btn" onClick={itemQuantityShow}>
+            Add
+          </button>
         )}
       </div>
     </div>

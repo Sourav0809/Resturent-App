@@ -80,3 +80,13 @@
 .item-text{
     margin-top: toRem(10);
 }
+.item-quantity-btn{
+padding: toRem(5) toRem(18);
+border-radius: toRem(4);
+background-color: rgb(212, 64, 64);
+color: white;
+font-weight: bold;
+cursor: pointer;
+
+
+}
