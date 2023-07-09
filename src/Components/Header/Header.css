@@ -33,4 +33,11 @@
 .header-icons {
   display: flex;
   gap: 0.625rem;
+}
+
+.cart-quantity {
+  background-color: antiquewhite;
+  color: red;
+  padding: 0px 10px;
+  border-radius: 10px;
 }/*# sourceMappingURL=Header.css.map */
