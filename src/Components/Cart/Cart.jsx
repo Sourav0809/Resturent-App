@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./Cart.css";
-
+import Ui from "../UI/Ui";
 const Cart = (props) => {
   return (
     <>
@@ -14,9 +14,7 @@ const Cart = (props) => {
         <i className="bx bx-cart"></i>
         <h3>My Cart</h3>
       </div>
-
-      
-      {props.children}
+      <Ui>{props.children}</Ui>
     </>
   );
 };
